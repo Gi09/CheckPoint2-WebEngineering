@@ -52,7 +52,7 @@ export class ClienteComponent {
 
   // Método para listar
   listar():void{
-    this.clientes = this.clienteService.listar();
+    this.clienteService.listar().subscribe((ListaClient) => (this.clientes = ListaClient));    
     // console.log(this.clientes)
   }
 

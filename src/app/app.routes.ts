@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RotaComponent } from './components/rota/rota.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 
 export const routes: Routes = [
     // Se a path for vazia ele vai para a home
@@ -10,6 +11,8 @@ export const routes: Routes = [
     { path: 'nova-rota', component: RotaComponent},
     // O path 
     { path: 'client/:id', component:ClientDetailComponent},
+    // Rota pro cliente
+    { path: 'cliente', component:ClienteComponent},
     // O ** significa que qualquer outra coisa além do vazio e nova-rota irá para esse
     { path: '**', component: HomeComponent}
 ];

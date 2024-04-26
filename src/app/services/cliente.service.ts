@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from '../interfaces/Cliente';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-
-  constructor() { }
+  private apiUrl = 'http://localhost:3000/clientes';
+  constructor(private http:HttpClient) { }
 
   // Vamos criar uma lista da interface Cliente
   clientes:Cliente[] = [
@@ -14,9 +16,11 @@ export class ClienteService {
     {id: "segundoTeste", nome : "Matheus Fuchelberguer", telefone:"123456789"}
   ];
 
-  listar():Cliente[]{
+  // Retornará os mesmos clientes porém virão de uma API
+  listar(): Observable<Cliente[]>{
     // console.log(this.clientes);
-    return this.clientes;
+    // return this.clientes;
+    return this.http.get<Cliente[]>(this.apiUrl) as Observable<Cliente[]>;
   }
 
   remover(id:string){
