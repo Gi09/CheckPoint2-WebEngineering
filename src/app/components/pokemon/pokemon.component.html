@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <table class="table-danger">
+    <thead>
+      <tr>
+        <th>Nome do Pokemon</th>
+      </tr>
+    </thead>
+    @for (pokemon of pokemon; track $index){
+        <li>{{pokemon.name}}</li>   
+    }
+  </table>
+</div>

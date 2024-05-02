@@ -3,7 +3,7 @@ import { Tarefa } from '../../interfaces/Tarefa';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TarefaService } from '../../service/tarefa.service';
+import { TarefaService } from '../../services/tarefa.service';
 
 @Component({
   selector: 'app-tarefa',
