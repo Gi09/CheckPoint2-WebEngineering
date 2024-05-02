@@ -1,1 +1,20 @@
-<p>ibge works!</p>
+<div class="container mt-3">
+    <table class="table-danger">
+        <thead>
+            <td>Lista de Estados do Brasil</td>
+            <br>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sigla</th>
+            </tr>
+        </thead>
+        @for (item of estados; track $index){
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.sigla}}</td>
+            </tr>
+        }
+    </table>
+</div>
