@@ -7,7 +7,9 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class ClienteService {
+  // Variável global para indicar o EndPoint para fazer a comunicação
   private apiUrl = 'http://localhost:3000/clientes';
+  // Injeção de dependência
   constructor(private http:HttpClient) { }
 
   // Vamos criar uma lista da interface Cliente
@@ -23,16 +25,33 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.apiUrl) as Observable<Cliente[]>;
   }
 
-  remover(id:string){
-    const cliente = this.clientes.find(c => c.id == id);
-
-    if(cliente){
-      const index = this.clientes.indexOf(cliente);
-      this.clientes.splice(index,1);
-    }
+  getById(id:string): Observable<Cliente>{
+    return this.http.get(`${this.apiUrl}/${id}`) as Observable<Cliente>
   }
 
+  remover(id:string){
+    // const cliente = this.clientes.find(c => c.id == id);
+
+    // if(cliente){
+    //   const index = this.clientes.indexOf(cliente);
+    //   this.clientes.splice(index,1);
+    // }
+    return this.http.delete(`${this.apiUrl}/${id}`)
+  }
+
+  // Cabeçalho 
+  httpHeader = {
+    headers:{
+      "Content-Type":"application/json"
+    }
+  };
   adicionar(cliente:Cliente){
-    this.clientes.push(cliente);
+    // console.log(cliente)
+    return this.http.post(this.apiUrl, cliente, this.httpHeader)
+    // this.clientes.push(cliente); -> insere na collection
+  }
+
+  atualizar(cliente:Cliente){
+    return this.http.put(`${this.apiUrl}/${cliente.id}`, cliente, this.httpHeader)
   }
 }
