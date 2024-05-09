@@ -10,5 +10,19 @@
       "nome": "Matheus Fuchelberguer",
       "telefone": " "
     }
+  ],
+  "fornecedores": [
+    {
+      "nome": "Giovanna Sayuri",
+      "telefone": "23456789",
+      "id": "sdsfsdf",
+      "endereco": "fiap"
+    },
+    {
+      "nome": "Matheus Fuchelberguer",
+      "endereco": "vergueiro",
+      "id": "dfgfds",
+      "telefone": "2345678"
+    }
   ]
 }

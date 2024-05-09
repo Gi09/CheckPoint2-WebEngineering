@@ -1,0 +1,23 @@
+<form [formGroup]="fornecedorForm" (ngSubmit)="inserir()">
+    <p>
+        Nome: <input class="boxes" type="text" formControlName="nome">
+    </p>
+    <p>
+        Endereço: <input class="boxes" type="text" formControlName="endereco">
+    </p>
+    <p>
+        Telefone: <input class="boxes" type="text" formControlName="telefone">
+    </p>
+    <button class="btn button-enviar" type="submit">Enviar</button>
+</form>
+
+<h2>Listar Fornecedores</h2>
+
+<ul>
+    @for(item of fornecedores; track $index){
+        <li> {{item.id}} - {{item.nome}} - {{item.endereco}} - {{item.telefone}}
+            <input class="btn button-remover" type="button" value="Remover" (click)="remover(item.id)">
+            <a href="fornecedor/{{item.id}}" class="btn button-remover">Editar</a>
+        </li>
+    }
+</ul>

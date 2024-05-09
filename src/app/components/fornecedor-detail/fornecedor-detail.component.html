@@ -1,0 +1,14 @@
+<form [formGroup]="fornecedorForm" (ngSubmit)="update()">
+    <input type="hidden" formControlName="id">
+    <p>
+        Nome: <input type="text" class="boxes" formControlName="nome">
+    </p>
+    <p>
+        Endereço: <input type="text" class="boxes" formControlName="endereco">
+    </p>
+    <p>
+        Telefone: <input type="text" class="boxes" formControlName="telefone">
+    </p>
+    <button type="submit" class="button-enviar">Enviar</button>
+</form>
+<a href="fornecedor" class="btn button-remover">Voltar</a>
